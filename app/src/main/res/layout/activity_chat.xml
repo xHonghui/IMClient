@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/activity_bg"
+        android:orientation="vertical" >
+        
+        <include layout="@layout/title_bar"/>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/chat_swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <ListView
+                android:id="@+id/lv_chatting"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:dividerHeight="5dp"
+                android:listSelector="#00000000"
+                android:scrollbarStyle="outsideOverlay"
+                android:transcriptMode="normal" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_main_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:minHeight="45dip"
+            android:padding="2dip"
+            android:paddingTop="4dip" >
+
+            <RelativeLayout
+                android:id="@+id/rl_input_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <!-- 设置android:textCursorDrawable="@null"后，光标颜色会和字体颜色保持一致 -->
+                <EditText
+                    android:id="@+id/et_chatting_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingRight="35dp"
+                    android:background="@drawable/input_bar_bg_normal"
+                    android:maxLines="3"
+                    android:minHeight="40dip"
+                    android:textColor="@color/black_deep"
+                    android:textCursorDrawable="@null"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="55dip"
+                android:layout_height="35dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/selector_btn_chat_send"
+                android:text="发送"
+                android:textColor="@color/black_deep"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+<!--        <cn.itcast.im.ui.view.chat.ChatPanel
+            android:id="@+id/cm_chat_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+    </LinearLayout>
+
+   <!-- <cn.itcast.im.ui.view.chat.EaseVoiceRecorderView
+        android:id="@+id/voice_recorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />-->
+
+</RelativeLayout>
